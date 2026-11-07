@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 5: Keeping dietary data local with Ollama — Meal Planning with Free AI</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <p class="kicker">Asdale Dynamics · Beginner AI Series</p>
+    <h1><a href="index.html" style="color:inherit;text-decoration:none">Chapter 5: Keeping dietary data local with Ollama</a></h1>
+    <p class="tagline">Everything before this chapter works with a free cloud AI. If you'd rather your household's food details — safe foods, budgets, preferences, the full pantry list — <strong>never leave your computer</strong>, this chapter is for you.</p>
+    <p class="disclaimer"><strong>Education only — never nutrition or medical advice.</strong> For dietary and health decisions, talk to your doctor or a registered dietitian.</p>
+  </div>
+</header>
+<main class="wrap">
+<h1>Chapter 5: Keeping dietary data local with Ollama</h1>
+<p>Everything before this chapter works with a free cloud AI. If you'd rather your household's food details — safe foods, budgets, preferences, the full pantry list — <strong>never leave your computer</strong>, this chapter is for you.</p>
+<h2>What Ollama is (in one friend-plain paragraph)</h2>
+<p><a href="https://ollama.com">Ollama</a> is a free app that runs AI chat models <strong>on your own computer</strong>. There's no account, no subscription, and no internet needed after you download the model. Your prompts, your lists, everything stays on your machine — chat happens the same way it would in a webpage, but the "server" is your laptop.</p>
+<h2>What you need</h2>
+<ul><li>A computer: Windows, macOS, or Linux.</li><li><strong>RAM:</strong> 8 GB is the practical floor for smaller models; 16 GB is comfortable.</li><li><strong>Disk space:</strong> roughly 2–5 GB per model.</li><li>Internet <strong>once</strong>, to download Ollama and the model file.</li></ul>
+<h2>Setup: five steps</h2>
+<h3>1. Install Ollama</h3>
+<p>Download the installer from <a href="https://ollama.com/download">ollama.com/download</a> and run it like any normal app.</p>
+<h3>2. Pull a model</h3>
+<p>Open a terminal (Terminal on macOS/Linux; PowerShell or Command Prompt on Windows) and type:</p>
+<pre><code>ollama run llama3.1:8b</code></pre>
+<p>The first run downloads the model (a few GB — this is the slow part). After it finishes, you land in a chat session. Type <code>/bye</code> to exit when you want.</p>
+<blockquote><p>The model name <code>llama3.1:8b</code> is a good general-purpose choice for 16 GB machines. On an 8 GB machine try a smaller model, e.g. <code>ollama run llama3.2:3b</code>. Any of these is more than capable of meal-plan logistics.</p></blockquote>
+<h3>3. Test it with the pantry prompt</h3>
+<p>In the chat (after <code>ollama run ...</code>), paste <strong>Prompt #1</strong> from the <a href="06-prompt-library.html">prompt library</a>. Because everything is local, you can now paste your <em>real</em> pantry list, your real household constraints, real safe foods — the text never goes anywhere.</p>
+<h3>4. (Optional) Write a persistent "household" prompt file</h3>
+<p>Ollama supports reusable system prompts. Save this as <code>household.txt</code> next to where you work:</p>
+<pre><code>You are a meal-planning assistant for my household. You:
+- plan dinners, grocery lists, and short-order night cards
+- always follow the output format I specify exactly
+- never give nutrition, diet, or health advice — logistics only
+- keep suggestions simple: one-pot or low-effort by default
+- remember these household facts for this session:
+
+[paste your own household facts here — this file stays on
+your computer; do not paste it into any cloud AI chat]</code></pre>
+<p>Then run Ollama with it loaded:</p>
+<pre><code>ollama run llama3.1:8b &quot;$(cat household.txt)&quot;</code></pre>
+<p>(Works on macOS/Linux. On Windows PowerShell, <code>Get-Content household.txt -Raw</code> does the same.)</p>
+<h3>5. Where your data actually lives</h3>
+<ul><li>Model files: in Ollama's models folder (default <code>~/.ollama/models</code> on macOS/Linux; check <a href="https://github.com/ollama/ollama/blob/main/docs/faq.md">Ollama docs</a> for Windows).</li><li>Chat sessions: your <code>ollama run</code> conversations live in your terminal scrollback — not on any company server.</li><li>Your files (lists, cards, <code>household.txt</code>): wherever you saved them.</li></ul>
+<p>Nothing in this flow requires an account or a network connection after download. Put your computer in airplane mode and it still works — that's the test.</p>
+<h2>Honest tradeoffs</h2>
+<table><thead><tr><th></th><th>Cloud free tier</th><th>Local (Ollama)</th></tr></thead><tbody><tr><td>Setup</td><td>None</td><td>One-time install</td></tr><tr><td>Smarts</td><td>Stronger models</td><td>Good-enough models for logistics</td></tr><tr><td>Speed</td><td>Fast server hardware</td><td>Depends on your computer</td></tr><tr><td>Privacy of details</td><td>Depends on provider data policies</td><td>Stays on your machine</td></tr><tr><td>Works offline</td><td>No</td><td>Yes, after download</td></tr></tbody></table>
+<p>For meal-planning <em>logistics</em> — lists, templates, remixing — a local model genuinely is good enough. That's exactly why this manual's prompts are written as format-heavy, simple-reasoning tasks.</p>
+<h2>When local is clearly the right call</h2>
+<ul><li>You want to paste real household details without second-guessing.</li><li>You're building any of this into a family tool others will use.</li><li>Your internet is unreliable and you want planning to always work.</li></ul>
+<h2>Careful notes</h2>
+<ul><li><strong>Model updates:</strong> <code>ollama pull llama3.1:8b</code> re-downloads if a new build exists. Optional; the model you have works fine.</li><li><strong>Disk hygiene:</strong> models are a few GB each — remove one with <code>ollama rm &lt;name&gt;</code> if space matters.</li><li><strong>Still education-only:</strong> a local model will still drift toward diet talk if nudged. Keep the "logistics only" line in your system prompt — it works locally too.</li></ul>
+<nav class="chapter-nav" aria-label="Chapter navigation">
+  <a href="04-grocery-lists-you-can-edit.html">← Previous</a><a href="index.html">Manual home</a><a href="06-prompt-library.html">Next chapter →</a>
+</nav>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Part of the beginner AI series by Asdale Dynamics, LLC — plain-English AI guides, books, and tools. Companion manual: <em>The Massive AI Manual</em> by Dylan Asdale.</p>
+    <p>© 2026 Asdale Dynamics, LLC · MIT licensed · Education only, never medical or nutrition advice.</p>
+  </div>
+</footer>
+</body>
+</html>

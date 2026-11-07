@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 3: Picky-eater workarounds — Meal Planning with Free AI</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <p class="kicker">Asdale Dynamics · Beginner AI Series</p>
+    <h1><a href="index.html" style="color:inherit;text-decoration:none">Chapter 3: Picky-eater workarounds</a></h1>
+    <p class="tagline">Picky eaters are not a problem to solve in one prompt. They're a real constraint — like a small kitchen or a tight budget — and AI handle constraints well <em>if you state them precisely</em>. This chapter is about the wording that works.</p>
+    <p class="disclaimer"><strong>Education only — never nutrition or medical advice.</strong> For dietary and health decisions, talk to your doctor or a registered dietitian.</p>
+  </div>
+</header>
+<main class="wrap">
+<h1>Chapter 3: Picky-eater workarounds</h1>
+<p>Picky eaters are not a problem to solve in one prompt. They're a real constraint — like a small kitchen or a tight budget — and AI handle constraints well <em>if you state them precisely</em>. This chapter is about the wording that works.</p>
+<h2>Rule 1: State the constraint, not the diagnosis</h2>
+<p>Which of these gets a usable answer?</p>
+<ul><li>❌ <em>"My kid is extremely picky with sensory issues, refuses all textures, has food anxiety..."</em></li><li>✅ <em>"Plan dinners where each component can be served separately, no sauces mixed in, and one safe food available every night."</em></li></ul>
+<p>The first prompt asks a chatbot to play therapist. The second asks it to do <strong>logistics</strong> — which is exactly what it's good at. Keep household health details out of the chat anyway (privacy — see <a href="05-local-ai-with-ollama.html">Chapter 5</a>); operationally helpful descriptions are all you need.</p>
+<h2>Rule 2: Prompt for "component meals," not "one dish"</h2>
+<p>The workhorse prompt (<strong>Prompt P-1</strong> in the <a href="06-prompt-library.html">library</a>):</p>
+<pre><code>Plan 5 dinners for a household where some members eat &quot;mixed
+dishes&quot; and some only eat plainly prepared, separate components.
+
+For each dinner, give:
+- BASE DISH: the family version
+- DECONSTRUCTED VERSION: the same ingredients, kept separate
+  and plain (no mixed sauces, no overlapping textures)
+- SHARED PARTS: exactly which parts everyone eats the same way
+- ONE SAFE FOOD present at every dinner
+
+Keep cooking simple. One meal concept per night — I am NOT
+cooking two separate dinners. Logistics only, no nutrition advice.</code></pre>
+<p>Example output shape:</p>
+<table><thead><tr><th>Night</th><th>Base dish</th><th>Deconstructed</th><th>Shared parts</th><th>Safe food</th></tr></thead><tbody><tr><td>Mon</td><td>Chicken tacos</td><td>Tortilla + plain chopped chicken + cheese, each in own bowl</td><td>Tortillas, chicken, cheese</td><td>Tortilla</td></tr><tr><td>Tue</td><td>Pasta with sauce</td><td>Plain noodles + sauce on the side</td><td>Noodles</td><td>Noodles</td></tr></tbody></table>
+<p>Same ingredients, one cooking session, two plating styles. That's the whole trick.</p>
+<h2>Rule 3: Use the AI as a "new food translator"</h2>
+<p>A picky eater's safe list is long-term data. Instead of asking the AI to invent brand-new foods every week, ask it to <strong>remix safe foods into new shapes</strong>:</p>
+<pre><code>Here is a list of foods that reliably get eaten:
+plain chicken, buttered noodles, cheese, tortillas, apples,
+carrots, rice, scrambled eggs.
+
+Without adding any new main foods, create 5 &quot;same foods,
+new arrangement&quot; dinners — e.g., different assembly, different
+cut, different dipping setup. Flag anything that changes
+texture or temperature, since those are the riskiest changes.</code></pre>
+<p>This is dignified and effective: no "just get them to try kale," no nutrition lecture — just engineering with known-good parts.</p>
+<h2>Rule 4: Let the AI build the "off-ramp" list</h2>
+<p>For escalation-prone moments, have your plan include a fallback ladder. <strong>Template T-2</strong> in the library:</p>
+<pre><code>Create a &quot;fallback ladder&quot; card for my fridge: 4 levels of
+effort for tonight when the planned dinner is off the table:
+
+Level 1: assemble-from-pantry (nothing cooked)
+Level 2: one-pot, 10 minutes
+Level 3: frozen shortcut
+Level 4: order/backup plan, guilt-free
+
+Use only foods we stock: [paste your staples list].
+Each level: 2 options max, one sentence each.
+Logistics only.</code></pre>
+<p>Print it, stick it inside a cupboard door. On a bad night you don't decide <em>whether</em> to improvise — you just pick a rung.</p>
+<h2>Rule 5: Fold picky eats into the grocery list correctly</h2>
+<p>When generating your list (<a href="04-grocery-lists-you-can-edit.html">Chapter 4</a>), make sure safe foods appear as <strong>pantry staples</strong>, not per-recipe garnishes:</p>
+<pre><code>In the grocery list, put the safe foods (tortillas, cheese,
+apples, buttered-noodle supplies) in a &quot;BUY EVERY WEEK&quot; section
+at the top. We restock them regardless of the meal plan.</code></pre>
+<h2>What NOT to ask</h2>
+<ul><li><strong>"How do I get my kid to eat vegetables?"</strong> — that's feeding advice, outside this manual's lane, and the free AI will happily give you confident nonsense. Ask your pediatrician or feeding specialist what's right for your family.</li><li><strong>"Is my child's eating pattern normal?"</strong> — absolutely not a chatbot question. Healthcare professionals only.</li><li><strong>Anything with the child's name, age, or medical details</strong> pasted into a cloud chat. Keep it: "household includes picky eaters." That's all the AI needs.</li></ul>
+<nav class="chapter-nav" aria-label="Chapter navigation">
+  <a href="02-short-order-nights.html">← Previous</a><a href="index.html">Manual home</a><a href="04-grocery-lists-you-can-edit.html">Next chapter →</a>
+</nav>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Part of the beginner AI series by Asdale Dynamics, LLC — plain-English AI guides, books, and tools. Companion manual: <em>The Massive AI Manual</em> by Dylan Asdale.</p>
+    <p>© 2026 Asdale Dynamics, LLC · MIT licensed · Education only, never medical or nutrition advice.</p>
+  </div>
+</footer>
+</body>
+</html>

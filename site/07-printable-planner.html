@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 7: Printable planner page — Meal Planning with Free AI</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <p class="kicker">Asdale Dynamics · Beginner AI Series</p>
+    <h1><a href="index.html" style="color:inherit;text-decoration:none">Chapter 7: Printable planner page</a></h1>
+    <p class="tagline">One page. Print it, stick it on the fridge, fill it in by hand. It's the "source of truth" once your AI chat has drafted the plan — and like everything in this manual, it carries a red line: **education only, not nutrition advice; that question belongs with your doctor or dietitian.</p>
+    <p class="disclaimer"><strong>Education only — never nutrition or medical advice.</strong> For dietary and health decisions, talk to your doctor or a registered dietitian.</p>
+  </div>
+</header>
+<main class="wrap">
+<h1>Chapter 7: Printable planner page</h1>
+<p>One page. Print it, stick it on the fridge, fill it in by hand. It's the "source of truth" once your AI chat has drafted the plan — and like everything in this manual, it carries a red line: <strong>education only, not nutrition advice; that question belongs with your doctor or dietitian.</strong></p>
+<blockquote><p><strong>How to print:</strong> in the static site (<a href="index.html">site index</a>) open <code>planner.html</code> and print, or print this page from the plain-text version below. Both print cleanly on one sheet; the site version also fits A4.</p></blockquote>
+<h2>Design principles (so it survives real life)</h2>
+<ul><li><strong>Sunday-style planning</strong> box at top — fill it whenever you plan; the day names are generic by design.</li><li><strong>Short-order nights get their own rows</strong> with a star, so a bad day is survivable at a glance.</li><li><strong>A BACKUP row of its own</strong> — the guilt-free escape hatch from <a href="02-short-order-nights.html">Chapter 2</a>.</li><li><strong>Stash check column</strong> — short-order nights live on the freezer stash; notice when it's empty.</li><li><strong>Next week notes</strong> — where NEXT TIME items from <a href="04-grocery-lists-you-can-edit.html">Chapter 4</a> get copied by hand.</li></ul>
+<hr>
+<h2>The plain-text template</h2>
+<p>Copy this into any text editor or reprint it by hand.</p>
+<pre><code>        WEEK OF: ____________          HOUSEHOLD: ______ people
+
+  PLANNED BY: ☐ me  ☐ me + AI (cloud)  ☐ me + AI (local, Ollama)
+  Reminder: plans are logistics, not nutrition advice.
+
+ -------------------------------------------------------------------
+ | DAY        | DINNER PLAN (short)           | BUY? | STASH CHECK  |
+ -------------------------------------------------------------------
+ | MON        | ____________________________  | _    | ___________ |
+ -------------------------------------------------------------------
+ | TUE ★      | SHORT-ORDER: ________________ | _    | stash ok? Y/N|
+ -------------------------------------------------------------------
+ | WED        | ____________________________  | _    | ___________ |
+ -------------------------------------------------------------------
+ | THU ★      | SHORT-ORDER: ________________ | _    | stash ok? Y/N|
+ -------------------------------------------------------------------
+ | FRI        | ____________________________  | _    | ___________ |
+ -------------------------------------------------------------------
+ | SAT        | ____________________________  | _    | ___________ |
+ -------------------------------------------------------------------
+ | SUN        | ____________________________  | _    | ___________ |
+ -------------------------------------------------------------------
+ | ANY DAY    | BACKUP LADDER (fridge card):  |            |         |
+ | (escape)   | L1 pantry  L2 one-pot         |            |         |
+ |            | L3 frozen  L4 order out       |            |         |
+ -------------------------------------------------------------------
+
+  SAFE FOODS RESTOCK (buy every week):
+  ☐ ________________  ☐ ________________  ☐ ________________
+  ☐ ________________  ☐ ________________  ☐ ________________
+
+  NEXT-WEEK NOTES (from NEXT TIME list and this week&#x27;s lessons):
+  __________________________________________________________
+  __________________________________________________________
+
+  ONE LINE OF GRATITUDE (optional, keeps it human):
+  ______________________________ ♥</code></pre>
+<h2>Filling it in: a worked mini-example</h2>
+<ul><li><strong>TUE ★</strong> = "dumpling bowl" card from <a href="02-short-order-nights.html">Chapter 2</a>; stash check: dumplings.</li><li><strong>THU ★</strong> = "plain pasta night" card; stash check: butter, cheese.</li><li><strong>MON/WED/FRI/SUN</strong> = pantry-first dinners copied from the chat's table, abbreviated ("chicken + rice + broc").</li><li><strong>SAT</strong> = eat-out night (Prompt #5 decided which recipe to drop).</li><li><strong>Backup ladder</strong> pre-written in small letters so no decision is needed at 6 p.m.</li><li><strong>Next-week notes</strong> = "out of soy sauce" + the two items bumped from NEXT TIME.</li></ul>
+<h2>Why hand-write it at all?</h2>
+<p>Because the chat is the tool and the paper is the <em>system</em>.scrollback gets lost; the fridge doesn't. The page also doubles as next week's prompt input — read Tuesday's row back into <a href="04-grocery-lists-you-can-edit.html">Prompt G-2</a> and your plan loops itself.</p>
+<nav class="chapter-nav" aria-label="Chapter navigation">
+  <a href="06-prompt-library.html">← Previous</a><a href="index.html">Manual home</a><a href="planner.html">Printable planner →</a>
+</nav>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Part of the beginner AI series by Asdale Dynamics, LLC — plain-English AI guides, books, and tools. Companion manual: <em>The Massive AI Manual</em> by Dylan Asdale.</p>
+    <p>© 2026 Asdale Dynamics, LLC · MIT licensed · Education only, never medical or nutrition advice.</p>
+  </div>
+</footer>
+</body>
+</html>

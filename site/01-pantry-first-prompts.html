@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 1: Pantry-first prompts — Meal Planning with Free AI</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <p class="kicker">Asdale Dynamics · Beginner AI Series</p>
+    <h1><a href="index.html" style="color:inherit;text-decoration:none">Chapter 1: Pantry-first prompts</a></h1>
+    <p class="tagline">The single biggest mistake beginners make with meal planning AI: asking <em>"what should I eat this week?"</em> with no context. The AI has to invent a whole week from nothing — so it invents recipes that need rosemary you don't have, "2 cups of quinoa" that aren't in the cupboard, and a grocery bill that undoes the whole point.</p>
+    <p class="disclaimer"><strong>Education only — never nutrition or medical advice.</strong> For dietary and health decisions, talk to your doctor or a registered dietitian.</p>
+  </div>
+</header>
+<main class="wrap">
+<h1>Chapter 1: Pantry-first prompts</h1>
+<p>The single biggest mistake beginners make with meal planning AI: asking <em>"what should I eat this week?"</em> with no context. The AI has to invent a whole week from nothing — so it invents recipes that need rosemary you don't have, "2 cups of quinoa" that aren't in the cupboard, and a grocery bill that undoes the whole point.</p>
+<p><strong>Pantry-first flips it:</strong> you start from what you already own and let the AI build around that.</p>
+<h2>Why pantry-first works</h2>
+<ol><li><strong>Buy less.</strong> You're using up the half-bag of rice and the sad carrots instead of buying around them.</li><li><strong>The list gets shorter.</strong> A 7-meal plan that starts from your pantry might only add 10–15 grocery items instead of 40.</li><li><strong>The AI stops being generic.</strong> "What should I cook?" gives generic answers. "Here's what I have" gives <em>your</em> answers.</li></ol>
+<h2>Step by step</h2>
+<h3>1. Take a 60-second inventory</h3>
+<p>Don't overthink this. Walk through your kitchen and jot down:</p>
+<ul><li><strong>Proteins:</strong> whatever is in the fridge/freezer (chicken thighs, eggs, a block of cheese, canned beans)</li><li><strong>Carbs/starches:</strong> rice, pasta, tortillas, potatoes, bread</li><li><strong>Vegetables:</strong> fridge crisper + freezer bags + canned</li><li><strong>Flavor helpers:</strong> onions, garlic, soy sauce, stock cubes, salsa, whatever sauce bottles are going</li></ul>
+<p>A list like this is plenty:</p>
+<pre><code>chicken thighs, eggs, cheddar, rice, pasta, tortillas,
+frozen broccoli, canned black beans, onions, garlic,
+soy sauce, pasta sauce, a bit of sour cream</code></pre>
+<h3>2. Use the pantry-first prompt</h3>
+<p>Here's the base prompt from the <a href="06-prompt-library.html">prompt library</a>, Prompt #1:</p>
+<pre><code>I want to plan dinners for 7 days for my household of 3.
+Here is what I currently have in my kitchen (approximate is fine):
+chicken thighs, eggs, cheddar, rice, pasta, tortillas,
+frozen broccoli, canned black beans, onions, garlic,
+soy sauce, pasta sauce, a bit of sour cream
+
+Please:
+1. Plan 7 dinners that use up MOST of these items first.
+2. Keep each dinner simple: one pan or one pot where possible.
+3. Mark which ingredients I need to buy (keep that list short).
+4. Do NOT give nutrition or health advice — just meal logistics.
+5. Format the plan as a simple table: Day | Dinner | Uses | Buy.</code></pre>
+<h3>3. Read the response like an editor, not a student</h3>
+<p>You're the boss here. Check:</p>
+<ul><li>Does every planned meal actually use something you own?</li><li>Is the "Buy" list short (under ~15 items)?</li><li>Is anything planned twice in a row in a boring way?</li><li>Did it sneak in advice ("this is a healthy choice for...")? Regenerate and remind it: <em>"just logistics, no health commentary."</em></li></ul>
+<h3>4. Iterate with tiny follow-ups</h3>
+<p>The magic is in the second message, not the first:</p>
+<pre><code>Swap Tuesday for something that uses tortillas instead.</code></pre>
+<pre><code>Make Thursday the easiest possible night — almost zero cooking.</code></pre>
+<pre><code>We&#x27;ll also eat out one night — which day is the most crowded recipe,
+and what should we drop from the grocery list?</code></pre>
+<h2>Vague-keyword pantry lists (cloud AI)</h2>
+<p>If you're pasting into a <em>cloud</em> AI (free tier of an online service), you don't need to name your exact pantry — approximate categories work fine and keep details out of the chat:</p>
+<pre><code>I have: one protein likely chicken, rice, pasta, and some frozen
+vegetables typical of a standard freezer. Please plan 5 dinners.</code></pre>
+<p>The AI can work with that. If the output feels too generic, add one detail at a time until it feels <em>yours</em> — or move to the fully-local setup in <a href="05-local-ai-with-ollama.html">Chapter 5</a>, where you can be as detailed as you like.</p>
+<h2>Common pantry-first mistakes</h2>
+<table><thead><tr><th>Mistake</th><th>Fix</th></tr></thead><tbody><tr><td>Listing every item in the house</td><td>10–15 items is plenty; the AI just needs shape</td></tr><tr><td>No household size</td><td>"for 2 people" / "for 4, two are kids" changes everything</td></tr><tr><td>Accepting the first table wholesale</td><td>Ask for at least one swap — you'll get a better plan</td></tr><tr><td>Letting it drift into diet talk</td><td>Add "no nutrition advice, logistics only" to your prompt</td></tr></tbody></table>
+<nav class="chapter-nav" aria-label="Chapter navigation">
+  <a href="index.html">Manual home</a><a href="02-short-order-nights.html">Next chapter →</a>
+</nav>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Part of the beginner AI series by Asdale Dynamics, LLC — plain-English AI guides, books, and tools. Companion manual: <em>The Massive AI Manual</em> by Dylan Asdale.</p>
+    <p>© 2026 Asdale Dynamics, LLC · MIT licensed · Education only, never medical or nutrition advice.</p>
+  </div>
+</footer>
+</body>
+</html>

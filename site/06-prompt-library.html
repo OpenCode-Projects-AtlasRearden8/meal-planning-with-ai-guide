@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 6: The worked prompt library — Meal Planning with Free AI</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <p class="kicker">Asdale Dynamics · Beginner AI Series</p>
+    <h1><a href="index.html" style="color:inherit;text-decoration:none">Chapter 6: The worked prompt library</a></h1>
+    <p class="tagline">Copy-paste prompts with the <em>shape</em> of a good answer explained. Every prompt here:</p>
+    <p class="disclaimer"><strong>Education only — never nutrition or medical advice.</strong> For dietary and health decisions, talk to your doctor or a registered dietitian.</p>
+  </div>
+</header>
+<main class="wrap">
+<h1>Chapter 6: The worked prompt library</h1>
+<p>Copy-paste prompts with the <em>shape</em> of a good answer explained. Every prompt here:</p>
+<ul><li>is <strong>logistics-only</strong> (the "no nutrition advice" line is doing real work — keep it),</li><li>produces <strong>editable plain-text output</strong> you can paste into the planner page,</li><li>works on cloud free tiers <strong>and</strong> on a local model like Ollama (<a href="05-local-ai-with-ollama.html">Chapter 5</a>).</li></ul>
+<h2>The full-week planner (Prompt #1)</h2>
+<pre><code>I want to plan dinners for 7 days for my household of 3.
+Here is what I currently have in my kitchen (approximate is fine):
+chicken thighs, eggs, cheddar, rice, pasta, tortillas,
+frozen broccoli, canned black beans, onions, garlic,
+soy sauce, pasta sauce, a bit of sour cream
+
+Please:
+1. Plan 7 dinners that use up MOST of these items first.
+2. Keep each dinner simple: one pan or one pot where possible.
+3. Two of the nights must be &quot;short-order nights&quot;: 10 minutes
+   max of active cooking, 5 steps max.
+4. Mark which ingredients I need to buy (keep that list short).
+5. Do NOT give nutrition or health advice — just meal logistics.
+6. Format the plan as: Day | Dinner | Uses | Buy</code></pre>
+<p><strong>Why each line exists:</strong></p>
+<table><thead><tr><th>Line</th><th>Job</th></tr></thead><tbody><tr><td>household count</td><td>scales quantities; without it every answer is "for 4"</td></tr><tr><td>"approximate is fine"</td><td>stops the AI interrogating you about inventory</td></tr><tr><td>use up MOST of these first</td><td>forces pantry-first behavior</td></tr><tr><td>two short-order nights</td><td>builds in low-energy nights (<a href="02-short-order-nights.html">Chapter 2</a>)</td></tr><tr><td>"Buy list short"</td><td>the point: fewer groceries</td></tr><tr><td>no nutrition advice</td><td>keeps the output logistics, not lectures</td></tr><tr><td>exact format line</td><td>makes the result paste-ready for the planner</td></tr></tbody></table>
+<p><strong>Expected output shape:</strong> a 7-row table; short-order rows are near-trivial recipes; the Buy column is a tight list of maybe 8–12 items.</p>
+<h2>The remix prompts (Prompts #2–5)</h2>
+<p>Run these as <em>follow-ups</em> in the same chat, one at a time:</p>
+<p><strong>#2 — Swap night:</strong></p>
+<pre><code>Swap [day] for something that uses tortillas instead of rice.
+Update the Buy list if it changes.</code></pre>
+<p><strong>#3 — Raise/lower effort:</strong></p>
+<pre><code>Make [day] the easiest possible night — almost zero cooking.
+Make [day] the &quot;fun cooking&quot; night instead.</code></pre>
+<p><strong>#4 — Leftover dynamics:</strong></p>
+<pre><code>Two of these dinners will make leftovers. Plan which nights
+the leftovers get eaten, so we don&#x27;t cook 7 full dinners.</code></pre>
+<p><strong>#5 — Eat-out night:</strong></p>
+<pre><code>We&#x27;ll eat out on [day]. Which night&#x27;s recipe is most crowded,
+and what drops off the Buy list as a result?</code></pre>
+<h2>The deconstructed-meal prompt (Prompt P-1)</h2>
+<p>For households with picky eaters — full walkthrough in <a href="03-picky-eater-workarounds.html">Chapter 3</a>:</p>
+<pre><code>Plan 5 dinners for a household where some members eat &quot;mixed
+dishes&quot; and some only eat plainly prepared, separate components.
+
+For each dinner, give:
+- BASE DISH: the family version
+- DECONSTRUCTED VERSION: same ingredients, kept separate and plain
+- SHARED PARTS: exactly which parts everyone eats the same way
+- ONE SAFE FOOD present at every dinner
+
+Keep cooking simple. One meal concept per night — I am NOT
+cooking two separate dinners. Logistics only, no nutrition advice.</code></pre>
+<h2>The safe-food remix prompt (Prompt P-2)</h2>
+<pre><code>Here is a list of foods that reliably get eaten:
+[chicken, noodles, cheese, tortillas, apples, carrots, rice, eggs]
+
+Without adding any new main foods, create 5 &quot;same foods, new
+arrangement&quot; dinners — different assembly, different cut, different
+dipping setup. Flag anything that changes texture or temperature,
+since those are the riskiest changes. Logistics only.</code></pre>
+<h2>The short-order night template (Template T-1)</h2>
+<p>Full walkthrough in <a href="02-short-order-nights.html">Chapter 2</a>.</p>
+<pre><code>Let&#x27;s design 2 short-order nights for my week.
+
+My constraints:
+- Active cooking time: 10 minutes max
+- Steps: 5 steps max, written out fully
+- Equipment available: [microwave, toaster oven, stovetop]
+- Household: [2 adults, 1 kid who eats plain pasta]
+- Go-to shortcuts I already trust: [frozen dumplings, canned soup,
+  boxed mac]
+- Stretch goals only if easy: [frozen veg microwaved in a bag]
+
+For each short-order night, give a card in this exact format:
+NIGHT / MEAL / STEPS (numbered, 1–5 max) / DIRTY DISHES /
+KID VARIANT (if any) / BACKUP / GROCERY STAPLES USED
+
+No nutrition or health advice. Logistics only.
+Keep the tone practical.</code></pre>
+<h2>The fallback ladder (Template T-2)</h2>
+<pre><code>Create a &quot;fallback ladder&quot; card for my fridge: 4 levels of effort
+for tonight when the planned dinner is off the table:
+
+Level 1: assemble-from-pantry (nothing cooked)
+Level 2: one-pot, 10 minutes
+Level 3: frozen shortcut
+Level 4: order/backup plan, guilt-free
+
+Use only foods we stock: [paste your staples list].
+Each level: 2 options max, one sentence each. Logistics only.</code></pre>
+<h2>The grocery list prompts (Prompts G-1 and G-2)</h2>
+<p>Full walkthrough in <a href="04-grocery-lists-you-can-edit.html">Chapter 4</a>.</p>
+<p><strong>G-1 — fresh list:</strong></p>
+<pre><code>Based on the 7-dinner plan we just discussed, make my grocery list.
+
+Format rules — follow exactly:
+- Output ONLY the list, no commentary before or after.
+- Use checklist items in this form: - [ ] item — qty — note
+- Group under these headings, in this order:
+  BUY EVERY WEEK / PRODUCE / PROTEIN &amp; DAIRY / PANTRY / FROZEN /
+  NEXT TIME (not this week — flagged for later)
+- No nutrition or health advice.
+
+Household size: 3. Prefer store brands where a named brand
+doesn&#x27;t matter (rice, beans, stock).</code></pre>
+<p><strong>G-2 — reload last week:</strong></p>
+<pre><code>Here is last week&#x27;s grocery list, with my edits:
+
+[paste the edited list]
+
+Ignore anything marked [x]. Anything in NEXT TIME, include it
+this week. Then, below the list, show what I should check in my
+pantry before shopping (only the 5 most important items).
+This is for my meal planning logistics only.</code></pre>
+<h2>Generic fixes (use anytime)</h2>
+<pre><code>Format got lost. Re-generate ONLY the plain checklist, exactly
+in the specified section order, one item per line, nothing else.</code></pre>
+<pre><code>You gave nutrition/health commentary. Rewrite the previous
+answer with that commentary removed — logistics only.</code></pre>
+<pre><code>Too complicated. Redo the last answer with a &quot;max 6 ingredients
+per dinner&quot; rule.</code></pre>
+<h2>Bonus: the once-a-month stock-up session (Prompt M-1)</h2>
+<pre><code>Switch from weekly to monthly planning mode. Based on how our
+7-dinner plan used protein, frozen, and pantry items, tell me:
+1. the 3 pantry items we seem to burn through fastest
+2. which canned/frozen staples are worth buying in bulk for
+   the shortcuts in our short-order cards
+3. a checklist of bulk-buy items for a monthly stock-up trip
+Keep it as plain checklists. Logistics only, no nutrition advice.</code></pre>
+<h2>The meta-skill: how to fix any prompt</h2>
+<p>When a prompt disappoints, don't rewrite it from scratch. Diagnose:</p>
+<table><thead><tr><th>Symptom</th><th>Missing line</th></tr></thead><tbody><tr><td>Output too generic</td><td>context lines (household size, what you have)</td></tr><tr><td>Output too long</td><td>"max N steps / max M items"</td></tr><tr><td>Format collapses</td><td>the exact-format line, repeated after the answer</td></tr><tr><td>Drifts into advice</td><td>"logistics only, no nutrition advice" — again</td></tr><tr><td>Wrong audience</td><td>"I'm a beginner — explain each step plainly"</td></tr></tbody></table>
+<nav class="chapter-nav" aria-label="Chapter navigation">
+  <a href="05-local-ai-with-ollama.html">← Previous</a><a href="index.html">Manual home</a><a href="07-printable-planner.html">Next chapter →</a>
+</nav>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Part of the beginner AI series by Asdale Dynamics, LLC — plain-English AI guides, books, and tools. Companion manual: <em>The Massive AI Manual</em> by Dylan Asdale.</p>
+    <p>© 2026 Asdale Dynamics, LLC · MIT licensed · Education only, never medical or nutrition advice.</p>
+  </div>
+</footer>
+</body>
+</html>

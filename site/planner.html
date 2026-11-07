@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Printable Planner — Meal Planning with Free AI</title>
+<link rel="stylesheet" href="style.css">
+<style>
+@media print {
+  .no-print { display: none; }
+  body { background: #fff; }
+  .planner-sheet { box-shadow: none; margin: 0; padding: 0; }
+}
+</style>
+</head>
+<body class="print-page">
+<header class="site-header no-print">
+  <div class="wrap">
+    <p class="kicker">Asdale Dynamics · Beginner AI Series</p>
+    <h1>Printable Weekly Planner</h1>
+    <p class="tagline">One page. Print it, stick it on the fridge, fill it in by hand. The chat is the tool; this page is the system.</p>
+    <p class="disclaimer"><strong>Education only — never nutrition or medical advice.</strong></p>
+    <p><button onclick="window.print()">Print this page</button> · <a href="index.html">Back to manual</a></p>
+  </div>
+</header>
+
+<main class="planner-sheet wrap">
+  <div class="p-head">
+    <p><strong>WEEK OF:</strong> <span class="fill"></span> &nbsp; <strong>HOUSEHOLD:</strong> <span class="fill small"></span> people</p>
+    <p>Planned by: ☐ me &nbsp; ☐ me + AI (cloud) &nbsp; ☐ me + AI (local, Ollama)</p>
+    <p class="p-reminder">Reminder: plans are logistics, not nutrition advice.</p>
+  </div>
+
+  <table class="plan-table">
+    <thead>
+      <tr><th>Day</th><th>Dinner plan (short)</th><th>Buy?</th><th>Stash check</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Mon</td><td></td><td></td><td></td></tr>
+      <tr><td class="star">Tue ★ <small>short-order</small></td><td></td><td></td><td>stash ok? Y / N</td></tr>
+      <tr><td>Wed</td><td></td><td></td><td></td></tr>
+      <tr><td class="star">Thu ★ <small>short-order</small></td><td></td><td></td><td>stash ok? Y / N</td></tr>
+      <tr><td>Fri</td><td></td><td></td><td></td></tr>
+      <tr><td>Sat</td><td></td><td></td><td></td></tr>
+      <tr><td>Sun</td><td></td><td></td><td></td></tr>
+      <tr><td>Any day (escape)</td><td colspan="3"><strong>Backup ladder:</strong> L1 pantry assemble · L2 one-pot 10 min · L3 frozen shortcut · L4 order out, guilt-free</td></tr>
+    </tbody>
+  </table>
+
+  <p><strong>Safe-foods restock (buy every week):</strong></p>
+  <p class="grid6">
+    <span>☐ <span class="fill"></span></span>
+    <span>☐ <span class="fill"></span></span>
+    <span>☐ <span class="fill"></span></span>
+    <span>☐ <span class="fill"></span></span>
+    <span>☐ <span class="fill"></span></span>
+    <span>☐ <span class="fill"></span></span>
+  </p>
+
+  <p><strong>Next-week notes</strong> (from NEXT TIME list and this week's lessons):</p>
+  <p><span class="write-line"></span></p>
+  <p><span class="write-line"></span></p>
+
+  <p class="gratitude">One line of gratitude (optional, keeps it human): <span class="fill"></span> ♥</p>
+</main>
+
+<footer class="site-footer no-print">
+  <div class="wrap">
+    <p>© 2026 Asdale Dynamics, LLC · MIT licensed · Education only, never medical or nutrition advice.</p>
+  </div>
+</footer>
+</body>
+</html>
